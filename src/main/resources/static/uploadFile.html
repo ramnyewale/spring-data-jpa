@@ -7,10 +7,10 @@
 	<button id="upload-button" onclick="uploadFile()">Upload</button>
 
 	<script>
-		async function uploadPhoto() {
+		async function uploadFile() {
 			let formData = new FormData();
-			formData.append("data", fileupload.files[0]);
-			await fetch('http://localhost:8087/api/photo', {
+			formData.append("photoMetadata", fileupload.files[0]);
+			await fetch('http://localhost:8087/api/save-photo', {
 				method: "POST",
 				body: formData
 			}).then(result => result.text())
@@ -18,5 +18,4 @@
 		}
 	</script>
 </body>
-
 </html>

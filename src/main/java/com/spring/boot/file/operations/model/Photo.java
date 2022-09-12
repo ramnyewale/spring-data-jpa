@@ -26,6 +26,13 @@ public class Photo {
 		this.fileName = fileName;
 	}
 
+	public Photo(String id, @NotEmpty String fileName, byte[] data, String contentType) {
+		this.id = id;
+		this.fileName = fileName;
+		this.data = data;
+		this.contentType = contentType;
+	}
+
 	public String getId() {
 		return id;
 	}

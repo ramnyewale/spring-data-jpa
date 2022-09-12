@@ -55,8 +55,12 @@ public class PhotoSertvice {
 	}
 
 	@SuppressWarnings("static-access")
-	public Photo savePhoto(Photo photo) {
-		photo.setId(UUID.randomUUID().randomUUID().toString());
+	public Photo savePhoto(final String fileName, String contentType, byte[] data) {
+		Photo photo = new Photo();
+		photo.setId(UUID.randomUUID().toString());
+		photo.setFileName(fileName);
+		photo.setData(data);
+		photo.setContentType(contentType);
 		db.put(photo.getId(), photo);
 		return photo;
 	}
