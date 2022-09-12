@@ -1,0 +1,22 @@
+<html>
+
+<body>
+	<h2> File Upload </h2>
+
+	<input id="fileupload" type="file" name="fileupload" />
+	<button id="upload-button" onclick="uploadFile()">Upload</button>
+
+	<script>
+		async function uploadPhoto() {
+			let formData = new FormData();
+			formData.append("data", fileupload.files[0]);
+			await fetch('http://localhost:8087/api/photo', {
+				method: "POST",
+				body: formData
+			}).then(result => result.text())
+				.then(text => alert("image data saved successfully..!! \n" + text));
+		}
+	</script>
+</body>
+
+</html>
